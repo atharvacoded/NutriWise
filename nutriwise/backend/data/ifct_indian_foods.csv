@@ -1,0 +1,75 @@
+name,category,calories,protein_g,carbs_g,fat_g,fiber_g,source
+Whole wheat roti (chapati),Cereals,297,9.7,56.5,3.7,2.5,IFCT_2017
+Basmati rice cooked,Cereals,121,2.2,27.1,0.2,0.2,IFCT_2017
+Brown rice cooked,Cereals,112,2.6,23.5,0.9,1.8,IFCT_2017
+Jowar (sorghum),Cereals,349,10.4,72.6,1.9,1.6,IFCT_2017
+Bajra (pearl millet),Cereals,361,11.6,67.5,5.0,1.2,IFCT_2017
+Ragi (finger millet),Cereals,336,7.3,72.0,1.3,3.6,IFCT_2017
+Poha (flattened rice),Cereals,371,6.6,79.6,1.2,0.4,IFCT_2017
+Oats cooked,Cereals,71,2.5,12.0,1.5,1.7,IFCT_2017
+Toor dal cooked,Pulses,93,6.8,16.1,0.4,2.3,IFCT_2017
+Moong dal cooked,Pulses,105,7.0,17.9,0.4,2.0,IFCT_2017
+Masoor dal cooked,Pulses,116,9.0,20.1,0.4,4.0,IFCT_2017
+Chana dal cooked,Pulses,164,8.7,27.5,2.7,3.9,IFCT_2017
+Rajma cooked,Pulses,127,8.7,22.8,0.5,6.4,IFCT_2017
+Chole (chickpeas) cooked,Pulses,164,8.9,27.4,2.6,7.6,IFCT_2017
+Whole moong sprouted,Pulses,43,4.4,5.8,0.5,1.8,IFCT_2017
+Soya bean cooked,Pulses,173,17.0,9.6,9.0,4.2,IFCT_2017
+Paneer (full fat),Dairy,265,18.3,3.1,20.8,0.0,IFCT_2017
+Skimmed milk paneer,Dairy,72,13.4,2.5,1.2,0.0,IFCT_2017
+Whole milk,Dairy,61,3.2,4.4,3.7,0.0,IFCT_2017
+Buffalo milk,Dairy,117,3.7,4.8,8.9,0.0,IFCT_2017
+Curd (dahi),Dairy,60,3.1,3.0,4.0,0.0,IFCT_2017
+Low fat curd,Dairy,29,3.3,3.5,0.1,0.0,IFCT_2017
+Whey protein (commercial),Dairy,400,80.0,10.0,7.0,0.0,IFCT_2017
+Chicken breast (boneless cooked),Poultry,165,31.0,0.0,3.6,0.0,IFCT_2017
+Chicken thigh cooked,Poultry,209,26.0,0.0,11.0,0.0,IFCT_2017
+Egg whole boiled,Eggs,155,12.6,1.1,10.6,0.0,IFCT_2017
+Egg white boiled,Eggs,52,10.9,0.7,0.2,0.0,IFCT_2017
+Egg yolk,Eggs,322,15.9,3.6,26.5,0.0,IFCT_2017
+Rohu fish cooked,Fish,131,22.3,0.0,4.4,0.0,IFCT_2017
+Pomfret grilled,Fish,148,21.6,0.0,6.8,0.0,IFCT_2017
+Sardines,Fish,208,24.6,0.0,11.5,0.0,IFCT_2017
+Prawns cooked,Fish,99,20.9,0.9,1.2,0.0,IFCT_2017
+Potato boiled,Vegetables,77,2.0,17.0,0.1,1.8,IFCT_2017
+Sweet potato boiled,Vegetables,76,1.4,17.7,0.1,2.5,IFCT_2017
+Spinach (palak) raw,Vegetables,26,2.6,3.5,0.7,2.2,IFCT_2017
+Fenugreek leaves,Vegetables,49,4.4,6.0,0.9,3.0,IFCT_2017
+Bitter gourd (karela),Vegetables,25,1.6,4.3,0.2,2.6,IFCT_2017
+Brinjal (eggplant),Vegetables,24,1.4,4.0,0.3,2.5,IFCT_2017
+Lady finger (okra),Vegetables,35,1.9,6.4,0.2,3.2,IFCT_2017
+Tomato raw,Vegetables,19,0.9,3.9,0.2,1.2,IFCT_2017
+Onion raw,Vegetables,47,1.2,11.0,0.1,1.8,IFCT_2017
+Cauliflower,Vegetables,25,2.0,5.0,0.3,2.5,IFCT_2017
+Bottle gourd (lauki),Vegetables,14,0.6,3.4,0.1,0.5,IFCT_2017
+Pumpkin,Vegetables,26,1.0,6.5,0.1,0.5,IFCT_2017
+Drumstick (moringa),Vegetables,26,2.5,3.7,0.1,2.0,IFCT_2017
+Banana,Fruits,89,1.1,22.8,0.3,2.6,IFCT_2017
+Mango (ripe),Fruits,60,0.8,14.9,0.4,1.6,IFCT_2017
+Apple,Fruits,52,0.3,13.8,0.2,2.4,IFCT_2017
+Papaya,Fruits,43,0.5,10.8,0.3,1.7,IFCT_2017
+Guava,Fruits,68,2.6,14.3,1.0,5.4,IFCT_2017
+Orange,Fruits,47,0.9,11.8,0.1,2.4,IFCT_2017
+Watermelon,Fruits,30,0.6,7.6,0.2,0.4,IFCT_2017
+Pomegranate,Fruits,83,1.7,18.7,1.2,4.0,IFCT_2017
+Almonds,Nuts & Seeds,579,21.2,21.6,49.9,12.5,IFCT_2017
+Walnuts,Nuts & Seeds,654,15.2,13.7,65.2,6.7,IFCT_2017
+Peanuts roasted,Nuts & Seeds,585,26.2,15.8,49.7,8.5,IFCT_2017
+Cashews,Nuts & Seeds,553,18.2,30.2,43.9,3.3,IFCT_2017
+Flaxseeds,Nuts & Seeds,534,18.3,28.9,42.2,27.3,IFCT_2017
+Chia seeds,Nuts & Seeds,486,16.5,42.1,30.7,34.4,IFCT_2017
+Sesame seeds (til),Nuts & Seeds,573,17.7,23.5,49.7,11.8,IFCT_2017
+Sunflower seeds,Nuts & Seeds,584,20.8,20.0,51.5,8.6,IFCT_2017
+Mustard oil,Fats & Oils,884,0.0,0.0,100.0,0.0,IFCT_2017
+Coconut oil,Fats & Oils,862,0.0,0.0,100.0,0.0,IFCT_2017
+Ghee (clarified butter),Fats & Oils,900,0.3,0.0,99.7,0.0,IFCT_2017
+Groundnut oil,Fats & Oils,884,0.0,0.0,100.0,0.0,IFCT_2017
+Olive oil,Fats & Oils,884,0.0,0.0,100.0,0.0,IFCT_2017
+Idli (steamed),Snacks & Misc,58,2.0,11.5,0.4,0.5,IFCT_2017
+Dosa (plain),Snacks & Misc,168,3.8,24.3,6.3,0.8,IFCT_2017
+Sambar,Snacks & Misc,43,2.8,6.1,1.0,2.2,IFCT_2017
+Dal tadka,Snacks & Misc,105,6.5,14.2,2.8,3.0,IFCT_2017
+Khichdi,Snacks & Misc,124,4.9,21.3,2.6,1.4,IFCT_2017
+Upma,Snacks & Misc,150,3.2,24.0,4.5,1.0,IFCT_2017
+Poha with vegetables,Snacks & Misc,180,3.8,34.0,3.8,1.2,IFCT_2017
+Curd rice,Snacks & Misc,102,3.5,16.5,2.7,0.2,IFCT_2017

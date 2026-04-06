@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriWise - AI Nutrition Planner</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-leaf"></div>
+        Nutri<span>Wise</span>
+      </div>
+      <nav class="nav-pills">
+        <button class="nav-pill active" onclick="window.scrollTo({top:0,behavior:'smooth'})">Plan</button>
+        <button class="nav-pill" onclick="document.getElementById('resultsScreen')?.scrollIntoView({behavior:'smooth'})">Results</button>
+        <button class="nav-pill" onclick="document.getElementById('foodSearchPanel')?.scrollIntoView({behavior:'smooth'})">Food Search</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">AI-Powered Nutrition Science</p>
+      <h1>Your <em>precise</em> nutrition plan,<br>built by machine learning</h1>
+      <p class="hero-sub">Three TensorFlow models analyze your body composition, goals, and lifestyle to generate a fully personalized daily nutrition plan.</p>
+
+      <div class="step-progress">
+        <div class="step-item active" id="stepItem1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Profile</div>
+        </div>
+        <div class="step-item" id="stepItem2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Goal</div>
+        </div>
+        <div class="step-item" id="stepItem3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Lifestyle</div>
+        </div>
+        <div class="step-item" id="stepItem4">
+          <div class="step-circle">4</div>
+          <div class="step-label">Your Plan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- STEP 1 - Profile -->
+      <div class="step-pane" id="step1">
+        <div class="form-card">
+          <div class="form-section-title">Body metrics</div>
+          <div class="field-grid field-grid-3">
+            <div class="field-group">
+              <label class="field-label" for="age">Age (years)</label>
+              <input type="number" id="age" placeholder="e.g. 25" min="10" max="100" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="sex">Biological sex</label>
+              <select id="sex">
+                <option value="">Select...</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="height_cm">Height (cm)</label>
+              <input type="number" id="height_cm" placeholder="e.g. 175" min="100" max="250" />
+            </div>
+          </div>
+          <div class="field-grid field-grid-3">
+            <div class="field-group">
+              <label class="field-label" for="weight_kg">Weight (kg)</label>
+              <input type="number" id="weight_kg" placeholder="e.g. 72" min="20" max="300" step="0.1" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="body_fat_pct">Body fat % <span class="text-muted">(optional)</span></label>
+              <input type="number" id="body_fat_pct" placeholder="e.g. 20" min="3" max="65" step="0.5" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="cuisine">Cuisine preference</label>
+              <select id="cuisine">
+                <option value="india">Indian</option>
+                <option value="western">Western</option>
+                <option value="asian">East Asian</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="any">Any / Mixed</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-grid field-grid-2">
+            <div class="field-group">
+              <label class="field-label" for="diet_type">Dietary restrictions</label>
+              <select id="diet_type">
+                <option value="none">None</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="eggetarian">Eggetarian</option>
+                <option value="glutenFree">Gluten-free</option>
+                <option value="dairyFree">Dairy-free</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="allergies">Allergies / foods to avoid</label>
+              <input type="text" id="allergies" placeholder="e.g. peanuts, shellfish" />
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="goStep(2)">
+              Next: Set your goal
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 - Goal -->
+      <div class="step-pane hidden" id="step2">
+        <div class="form-card">
+          <div class="form-section-title">Primary fitness goal</div>
+          <div class="goal-grid">
+            <div class="goal-card" data-goal="loss">
+              <div class="goal-selected-badge"></div>
+              <span class="goal-icon">🔥</span>
+              <div class="goal-name">🔥 Lose Weight</div>
+              <div class="goal-desc">Calorie deficit - High protein - Preserve muscle</div>
+            </div>
+            <div class="goal-card" data-goal="muscle">
+              <div class="goal-selected-badge"></div>
+              <span class="goal-icon">💪</span>
+              <div class="goal-name">💪 Build Muscle</div>
+              <div class="goal-desc">Lean bulk - Muscle synthesis - Strength gain</div>
+            </div>
+            <div class="goal-card" data-goal="gain">
+              <div class="goal-selected-badge"></div>
+              <span class="goal-icon">⚡</span>
+              <div class="goal-name">⚡ Gain Weight</div>
+              <div class="goal-desc">Calorie surplus - Dense nutrition - Healthy bulk</div>
+            </div>
+          </div>
+          <div class="form-section-title" style="margin-top:1.5rem">Target and timeline</div>
+          <div class="field-grid field-grid-2">
+            <div class="field-group">
+              <label class="field-label" for="target_weight_kg">Desired weight (kg) <span class="text-muted">optional</span></label>
+              <input type="number" id="target_weight_kg" placeholder="e.g. 65" min="30" max="200" step="0.5" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="timeline_weeks">Timeline</label>
+              <select id="timeline_weeks">
+                <option value="4">4 weeks</option>
+                <option value="8">8 weeks</option>
+                <option value="12" selected>12 weeks</option>
+                <option value="16">16 weeks</option>
+                <option value="24">24 weeks</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goStep(1)">Back</button>
+            <button class="btn btn-primary" onclick="goStep(3)">
+              Next: Lifestyle
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 - Lifestyle -->
+      <div class="step-pane hidden" id="step3">
+        <div class="form-card">
+          <div class="form-section-title">Activity and lifestyle</div>
+          <div class="field-grid field-grid-1">
+            <div class="field-group">
+              <label class="field-label" for="activity_level">Activity level</label>
+              <select id="activity_level">
+                <option value="">Select...</option>
+                <option value="sedentary">Sedentary - desk job, little or no exercise</option>
+                <option value="light">Lightly active - 1-3 days/week light exercise</option>
+                <option value="moderate">Moderately active - 3-5 days/week exercise</option>
+                <option value="very">Very active - 6-7 days/week intense exercise</option>
+                <option value="extreme">Extremely active - physical job + daily training</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-grid field-grid-2">
+            <div class="field-group">
+              <label class="field-label" for="sleep_h">Sleep (hours / night)</label>
+              <input type="number" id="sleep_h" placeholder="e.g. 7" min="3" max="12" step="0.5" value="7" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="meals_per_day">Meals per day</label>
+              <select id="meals_per_day">
+                <option value="3">3 meals</option>
+                <option value="4">4 meals</option>
+                <option value="5" selected>5 meals</option>
+                <option value="6">6 meals</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-grid field-grid-1">
+            <div class="field-group">
+              <label class="field-label" for="health_condition">Health conditions <span class="text-muted">optional</span></label>
+              <select id="health_condition">
+                <option value="">None</option>
+                <option value="diabetes">Diabetes</option>
+                <option value="thyroid">Thyroid condition</option>
+                <option value="pcos">PCOS/PCOD</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="other">Other (specify below)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-grid field-grid-1">
+            <div class="field-group hidden" id="healthOtherGroup">
+              <label class="field-label" for="health_notes_other">Other health notes</label>
+              <input type="text" id="health_notes_other" placeholder="Enter details" />
+            </div>
+          </div>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem">
+            <div style="padding:.3rem .75rem;border-radius:20px;border:1px solid var(--border2);font-size:.72rem;color:var(--text3)">TDEE model: 20,000 training profiles</div>
+            <div style="padding:.3rem .75rem;border-radius:20px;border:1px solid var(--border2);font-size:.72rem;color:var(--text3)">USDA foods scored for your goal</div>
+            <div style="padding:.3rem .75rem;border-radius:20px;border:1px solid var(--border2);font-size:.72rem;color:var(--text3)">IFCT 2017 Indian food composition</div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goStep(2)">Back</button>
+            <button class="btn btn-accent" onclick="generatePlan()">Generate My Plan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 — Loading + Results -->
+      <div class="step-pane hidden" id="step4">
+        <div class="form-card">
+
+          <!-- Loading -->
+          <div id="loadingScreen" class="loading-screen">
+            <div class="loading-ring"></div>
+            <div>
+              <div class="loading-title">Crunching your numbers...</div>
+              <div class="loading-sub">Our TensorFlow models are processing your profile</div>
+            </div>
+            <div class="loading-steps" id="loadingSteps"></div>
+          </div>
+
+          <!-- Results -->
+          <div id="resultsScreen" class="hidden">
+
+            <div class="results-header">
+              <div class="results-goal-badge" id="goalBadge">Plan</div>
+              <h2 class="results-title" id="resultsTitle">Your Nutrition Plan</h2>
+              <p class="results-sub" id="resultsSub"></p>
+            </div>
+
+            <!-- 8 metric cards -->
+            <div class="metrics-row" id="metricsGrid"></div>
+
+            <!-- Macro split + weekly projection chart -->
+            <div class="chart-row">
+              <div class="panel" style="animation-delay:.1s">
+                <div class="panel-title">Daily macro split</div>
+                <div class="macro-bar-wrap">
+                  <div class="macro-bar" id="macroBar"></div>
+                  <div class="macro-legend" id="macroLegend"></div>
+                </div>
+                <div class="chart-container" style="height:200px;margin-top:1rem">
+                  <canvas id="macroChart"></canvas>
+                </div>
+              </div>
+              <div class="panel" style="animation-delay:.15s">
+                <div class="panel-title">Weekly progression</div>
+                <div style="font-size:.75rem;color:var(--text3);margin-bottom:.75rem">Calories (bars) | Weight trajectory (line)</div>
+                <div class="chart-container" style="height:240px">
+                  <canvas id="weeklyChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meal plan -->
+            <div class="panel" style="animation-delay:.2s">
+              <div class="panel-title">Your daily meal plan</div>
+              <div class="meal-tabs" id="mealTabBar"></div>
+              <div id="mealPanes"></div>
+            </div>
+
+            <!-- Weekly targets table -->
+            <div class="panel" style="animation-delay:.25s">
+              <div class="panel-title">Weekly targets breakdown</div>
+              <div style="overflow-x:auto">
+                <table class="weekly-table">
+                  <thead>
+                    <tr>
+                      <th>Week</th><th>Calories</th><th>Protein</th>
+                      <th>Carbs</th><th>Fat</th><th>Projected Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody id="weeklyTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tips + Supplements -->
+            <div class="chart-row">
+              <div class="panel" style="animation-delay:.3s">
+                <div class="panel-title">Personalized tips and warnings</div>
+                <div class="tips-grid" id="tipsContainer"></div>
+              </div>
+              <div class="panel" style="animation-delay:.35s">
+                <div class="panel-title">Supplement recommendations</div>
+                <p style="font-size:.72rem;color:var(--text3);margin-bottom:.75rem">Consult a doctor before starting any supplement.</p>
+                <div class="supp-grid" id="suppContainer"></div>
+              </div>
+            </div>
+
+            <!-- Food search -->
+            <div class="panel" id="foodSearchPanel" style="animation-delay:.4s">
+              <div class="panel-title">Food database search</div>
+              <p style="font-size:.78rem;color:var(--text3);margin-bottom:.75rem">Search 700k+ USDA + IFCT foods, scored for your goal.</p>
+              <div class="search-row">
+                <input type="text" id="searchInput" placeholder="Search foods - e.g. paneer, chicken, oats..." />
+                <button class="btn btn-primary" onclick="runFoodSearch()">Search</button>
+              </div>
+              <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-bar">
+              <button class="btn btn-secondary" onclick="printPlan()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+                Print / Save PDF
+              </button>
+              <button class="btn btn-secondary" onclick="resetApp()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 12a9 9 0 109-9 9 9 0 00-9 4.5M3 3v4.5h4.5"/></svg>
+                Start Over
+              </button>
+            </div>
+            <p style="text-align:center;font-size:.7rem;color:var(--text3);padding-bottom:1rem">
+              NutriWise is for informational purposes only. Always consult a registered dietitian before making significant dietary changes.
+            </p>
+
+          </div><!-- /resultsScreen -->
+        </div><!-- /form-card -->
+      </div><!-- /step4 -->
+
+    </div><!-- /container -->
+  </main>
+</div><!-- /app-shell -->
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
