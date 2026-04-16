@@ -1,0 +1,160 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{NutriWise: Nutrition Assistance System}
+\author{}
+\date{April 9, 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Abstract}
+NutriWise is an intelligent nutrition assistance system. The system is designed to generate personalized meal plans, analyze restaurant menus, and visualize food recommendations. The core functionality produces dynamic and context-aware dietary suggestions. By combining user input data with advanced processing, the system provides customized nutritional outputs that improve user engagement and health decision-making.
+
+\section{Introduction}
+In recent years, modern technology has played a major role in the development of smart health and wellness systems. Maintaining a balanced diet is essential for human health, but many individuals face challenges such as lack of nutritional knowledge, improper meal planning, and limited access to personalized diet recommendations. Traditional diet planning methods require manual calculation of calorie intake, nutrient balance, and food selection. These methods are often time-consuming and require domain expertise. With the advancement of automated nutrition systems, they can now generate meal plans, evaluate food choices, and provide dietary suggestions. NutriWise is designed as a nutrition assistant that simplifies meal planning and food selection. The system accepts user inputs such as dietary goals, preferences, and regional choices. It then processes the information to generate optimized meal suggestions and visual food outputs.
+
+\section{Problem Statement}
+Many individuals struggle to maintain healthy eating habits due to the lack of proper nutritional planning tools. Some common problems include:
+\begin{itemize}
+    \item Lack of personalized meal planning systems
+    \item Difficulty understanding nutritional values
+    \item Poor decision-making while selecting restaurant meals
+    \item Limited visualization of recommended meals
+    \item Time-consuming manual diet planning
+\end{itemize}
+These challenges highlight the need for an automated nutrition assistant that can generate personalized recommendations efficiently.
+
+\section{Objectives of the System}
+The primary objectives of the NutriWise system include:
+\begin{itemize}
+    \item To develop a meal planning system
+    \item To generate personalized diet recommendations
+    \item To analyze restaurant menus
+    \item To visualize recommended meals
+    \item To create a user-friendly interface for interaction
+    \item To store and manage user data efficiently
+    \item To automate nutritional reasoning
+\end{itemize}
+
+\section{System Overview}
+NutriWise is designed as a full-stack web application. The system integrates frontend, backend, and database components to deliver real-time responses. The architecture follows a modular structure where each component performs specific tasks. The frontend manages user interaction, and the backend handles processing logic to generate outputs. The workflow begins with user input collection and ends with the display of personalized recommendations.
+
+\begin{itemize}
+    \item Receiving text descriptions of meals
+    \item Processing semantic meaning of food items
+    \item Generating visual food representations
+    \item Returning generated images to the frontend
+\end{itemize}
+The integration of image generation improves visualization and enhances user experience.
+
+\section{Data Used in the System}
+The NutriWise system uses multiple types of data rather than a single static dataset.
+
+\subsection{User Input Data}
+User input data forms the primary data source for generating personalized recommendations. Examples include:
+\begin{itemize}
+    \item Age
+    \item Gender
+    \item Dietary preferences
+    \item Health goals
+    \item Calorie requirements
+    \item Regional cuisine preferences
+\end{itemize}
+This data is processed dynamically to produce tailored outputs.
+
+\subsection{Menu Text Data}
+Menu data is collected from textual restaurant menus provided by users. This data is analyzed using text processing techniques to identify food items and recommend healthier alternatives.
+
+\subsection{Dynamic Nutrition Knowledge}
+Nutrition logic is generated dynamically. Instead of storing large datasets locally, the system relies on advanced reasoning to produce relevant nutritional outputs.
+
+\section{System Architecture}
+The NutriWise architecture consists of three main layers:
+\begin{itemize}
+    \item Frontend Layer
+    \item Backend Layer
+    \item Database Layer
+\end{itemize}
+
+\subsection{Frontend Layer}
+The frontend layer is responsible for displaying user interfaces and handling user interaction. Technologies used:
+\begin{itemize}
+    \item React.js
+    \item HTML
+    \item CSS
+    \item JavaScript
+    \item Tailwind CSS
+\end{itemize}
+The frontend sends requests to the backend and displays returned results.
+
+\subsection{Backend Layer}
+The backend layer processes user input and manages communication between the frontend and processing services. Technologies used:
+\begin{itemize}
+    \item Python
+    \item API Integration
+    \item Query Handling Logic
+\end{itemize}
+The backend performs:
+\begin{itemize}
+    \item Input validation
+    \item Query generation
+    \item Service communication
+    \item Response formatting
+\end{itemize}
+
+\subsection{Database Layer}
+The database layer stores persistent application data. Technology used:
+\begin{itemize}
+    \item PostgreSQL (via Supabase)
+\end{itemize}
+Stored data includes:
+\begin{itemize}
+    \item User profiles
+    \item Preferences
+    \item Session data
+    \item Generated outputs
+\end{itemize}
+
+\section{Methodology}
+The NutriWise system follows a structured workflow to process user data and generate results.
+\begin{enumerate}
+    \item User enters dietary information.
+    \item Frontend sends data to backend server.
+    \item Backend creates structured query.
+    \item Text descriptions are forwarded to the visualization service.
+    \item The visualization service generates food images.
+    \item Results are displayed to user interface.
+\end{enumerate}
+
+\section{Key Features Implemented}
+The following major features are included in the NutriWise system:
+\begin{itemize}
+    \item Personalized Meal Planning
+    \item Restaurant Menu Analysis
+    \item Nutrition Recommendation System
+    \item Food Image Generation
+    \item User Profile Management
+    \item Dynamic Response Generation
+\end{itemize}
+
+\section{Advantages of the System}
+The NutriWise system offers several advantages:
+\begin{itemize}
+    \item Provides personalized nutrition guidance
+    \item Reduces manual diet planning effort
+    \item Improves food decision-making
+    \item Enhances user interaction through visualization
+\end{itemize}
+
+\section{Conclusion}
+NutriWise demonstrates the practical implementation of modern technology in nutrition management. By processing text and visual data, the system provides intelligent and personalized meal recommendations. The modular architecture enables easy expansion and supports future enhancements in healthcare technology.
+
+\end{document}
